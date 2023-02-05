@@ -8,10 +8,15 @@ namespace CodeBase
 {
     public class GameManager : MonoBehaviourPunCallbacks
     {
+        public static GameManager Instance;
+        
         [SerializeField] private Button _buttonLeave;
 
-        private void Start() => 
+        private void Start() {
+            Instance = this; 
+            
             _buttonLeave.onClick.AddListener(LeaveRoom);
+        }
 
         #region Photon Callbacks
         
@@ -38,7 +43,7 @@ namespace CodeBase
         
         #endregion
 
-        private void LeaveRoom() => PhotonNetwork.LeaveRoom();
+        public void LeaveRoom() => PhotonNetwork.LeaveRoom();
 
         private void LoadArena() {
             if (!PhotonNetwork.IsMasterClient) {
