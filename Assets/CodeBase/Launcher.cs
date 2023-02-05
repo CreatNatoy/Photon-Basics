@@ -19,6 +19,8 @@ namespace CodeBase
         
         private readonly string _gameVersion = "1";
 
+        private bool _isConnecting; 
+
         private void Awake()
         {
             PhotonNetwork.AutomaticallySyncScene = true; 
@@ -47,7 +49,7 @@ namespace CodeBase
             }
             else
             {
-                PhotonNetwork.ConnectUsingSettings();
+                _isConnecting = PhotonNetwork.ConnectUsingSettings();
                 PhotonNetwork.GameVersion = _gameVersion;
             }
         }
@@ -56,13 +58,16 @@ namespace CodeBase
         {
             Debug.Log("PUN Basics Tutorial/Launcher: OnConnectedToMaster() was called by PUN");
 
-            PhotonNetwork.JoinRandomRoom();
+            if (_isConnecting) {
+                PhotonNetwork.JoinRandomRoom();
+                _isConnecting = false;
+            }
         }
 
         public override void OnDisconnected(DisconnectCause cause)
         {
             Debug.LogWarningFormat("PUN Basics Tutorial/Launcher: OnDisconnected() was called by PUN with reason {0}", cause);
-            
+            _isConnecting = false;
             StatusConnected(false);
         }
 
@@ -76,6 +81,12 @@ namespace CodeBase
         public override void OnJoinedRoom()
         {
             Debug.Log("PUN Basics Tutorial/Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.");
+            
+            if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
+            {
+                Debug.Log("We load the 'Room for 1' ");
+                PhotonNetwork.LoadLevel("RoomFor1");
+            }
         }
     }
 }
