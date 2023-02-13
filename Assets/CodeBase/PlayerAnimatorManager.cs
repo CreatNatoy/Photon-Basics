@@ -1,14 +1,18 @@
+using Photon.Pun;
 using UnityEngine;
 
 namespace CodeBase
 {
-    public class PlayerAnimatorManager : MonoBehaviour
+    public class PlayerAnimatorManager : MonoBehaviourPun
     {
         [SerializeField] private Animator _animator;
         [Space] 
         [SerializeField] private float _directionDampTime = 0.25f; 
 
         private void Update() {
+            if(photonView.IsMine == false && PhotonNetwork.IsConnected)
+                return;
+            
             Jump();
             MoveAndRotation();
         }
