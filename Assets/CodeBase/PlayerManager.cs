@@ -9,6 +9,9 @@ namespace CodeBase
         [Tooltip("The current Health of our player")]
         public float Health = 1f;
         [Space]
+        [Tooltip("The Player's UI GameObject Prefab")]
+        [SerializeField]
+        public GameObject _playerUiPrefab;
         [Tooltip("The Beams GameObject to control")]
         [SerializeField] private GameObject _beams;
         [SerializeField] private CameraWork _cameraWork;
@@ -30,6 +33,9 @@ namespace CodeBase
             if(photonView.IsMine)
                 _cameraWork.OnStartFollowing();
             
+            GameObject uiGo =  Instantiate(_playerUiPrefab);
+            uiGo.SendMessage ("SetTarget", this, SendMessageOptions.RequireReceiver);
+            
 #if UNITY54ORNEWER
 // Unity 5.4 has a new scene management. register a method to call CalledOnLevelWasLoaded.
 UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneLoaded;
@@ -39,16 +45,18 @@ UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneLoaded;
         private void Update() {
             if(photonView.IsMine)
                 ProcessInputs();
-            
-            if (_beams != null && _isFiring != _beams.activeInHierarchy) 
+
+            if (_isFiring != _beams.activeInHierarchy) {
                 _beams.SetActive(_isFiring);
+                Debug.Log(_isFiring);
+            }
         }
 
         private void ProcessInputs() {
-            if (Input.GetButtonDown("Fire1"))  
-                _beams.SetActive(true);
+            if (Input.GetButtonDown("Fire1"))
+                _isFiring = true;
             if (Input.GetButtonUp("Fire1")) 
-                _beams.SetActive(false);
+                _isFiring = false;
         }
         
         private void OnTriggerEnter(Collider other)
@@ -118,6 +126,8 @@ endif
 
 void CalledOnLevelWasLoaded(int level)
 {
+    GameObject uiGo = Instantiate(this.PlayerUiPrefab);
+    uiGo.SendMessage("SetTarget", this, SendMessageOptions.RequireReceiver);
     // check if we are outside the Arena and if it's the case, spawn around the center of the arena in a safe zone
     if (!Physics.Raycast(transform.position, -Vector3.up, 5f))
     {

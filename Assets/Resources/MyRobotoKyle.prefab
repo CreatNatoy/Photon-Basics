@@ -1503,6 +1503,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
+  - {fileID: 1436882702673679015}
   - {fileID: 4832450632010453299}
   - {fileID: 7634021797034159531}
   sceneViewId: 0
@@ -1521,6 +1522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 1
+  _playerUiPrefab: {fileID: 1329413298498696543, guid: 2d629904a3f56e647b4095830a6e024d, type: 3}
   _beams: {fileID: 5844296590306730851}
   _cameraWork: {fileID: 8426072375443070749}
 --- !u!114 &4832450632010453299
