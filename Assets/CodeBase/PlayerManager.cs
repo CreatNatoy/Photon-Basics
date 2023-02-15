@@ -48,7 +48,6 @@ UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneLoaded;
 
             if (_isFiring != _beams.activeInHierarchy) {
                 _beams.SetActive(_isFiring);
-                Debug.Log(_isFiring);
             }
         }
 
