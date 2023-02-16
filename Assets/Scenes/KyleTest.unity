@@ -275,6 +275,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MyRobotoKyle
       objectReference: {fileID: 0}
+    - target: {fileID: 6662339717775864690, guid: 7347cc8482a865d48b050274eca36845, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6662339718678743515, guid: 7347cc8482a865d48b050274eca36845, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7050667751315740837, guid: 7347cc8482a865d48b050274eca36845, type: 3}
       propertyPath: sceneViewId
       value: 1

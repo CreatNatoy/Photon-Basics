@@ -9,9 +9,6 @@ namespace CodeBase
         [Tooltip("The current Health of our player")]
         public float Health = 1f;
         [Space]
-        [Tooltip("The Player's UI GameObject Prefab")]
-        [SerializeField]
-        public GameObject _playerUiPrefab;
         [Tooltip("The Beams GameObject to control")]
         [SerializeField] private GameObject _beams;
         [SerializeField] private CameraWork _cameraWork;
@@ -32,9 +29,6 @@ namespace CodeBase
         private void Start() {
             if(photonView.IsMine)
                 _cameraWork.OnStartFollowing();
-            
-            GameObject uiGo =  Instantiate(_playerUiPrefab);
-            uiGo.SendMessage ("SetTarget", this, SendMessageOptions.RequireReceiver);
             
 #if UNITY54ORNEWER
 // Unity 5.4 has a new scene management. register a method to call CalledOnLevelWasLoaded.
