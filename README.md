@@ -23,3 +23,12 @@ The PUN Basics Tutorial is a Unity based tutorial. We will develop a first simpl
 ## Developer
 
 - [CreatNatoy](https://github.com/CreatNatoy)
+
+## Screenshot
+
+![image](https://user-images.githubusercontent.com/76531899/219941949-49e35809-f3b8-4f00-94e1-56c4772f8a30.png)
+![image](https://user-images.githubusercontent.com/76531899/219941998-04606515-ed8e-4497-975f-bb4a5da289ee.png)
+
+## Gameplay
+![Photon-Basics_hTe7KhUbUB-min](https://user-images.githubusercontent.com/76531899/219942534-c79675e6-f699-44b2-bda6-f75ada6e28b3.gif)
+
