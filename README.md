@@ -9,6 +9,14 @@
 # Photon-Basics
 The PUN Basics Tutorial is a Unity based tutorial. We will develop a first simple multiplayer game with PUN 2 using the Photon Cloud. The goal is to synchronize an animated character per player, the health values and basic raycast shooting.
 
+## Controller game
+* `A,W,S,D` - Move 
+* `Left click (Mouse)` - Shot
+* `Right click (Mouse)` - Jump
+
+## Build Game
+.../Photon-Basics/BuildGame/Photon-Basics.exe
+
 ## Assets
 - [PUN 2 - FREE](https://assetstore.unity.com/packages/tools/network/pun-2-free-119922)
 
