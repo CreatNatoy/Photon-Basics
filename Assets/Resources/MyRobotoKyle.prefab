@@ -1523,7 +1523,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 1
-  _playerUiPrefab: {fileID: 5715932152098059842, guid: 1e3240c42b9853b4db88527e8e008dc3, type: 3}
   _beams: {fileID: 5844296590306730851}
   _cameraWork: {fileID: 8426072375443070749}
 --- !u!114 &4832450632010453299
@@ -2126,6 +2125,10 @@ PrefabInstance:
     - target: {fileID: 5270836299966690385, guid: 3ad7b93b6d74ebf49b54ba5ea8333732, type: 3}
       propertyPath: m_Name
       value: CanvasUIPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 7550879334233243756, guid: 3ad7b93b6d74ebf49b54ba5ea8333732, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7550879334233243756, guid: 3ad7b93b6d74ebf49b54ba5ea8333732, type: 3}
       propertyPath: m_AnchorMax.y
